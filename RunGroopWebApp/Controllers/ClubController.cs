@@ -12,7 +12,7 @@ namespace RunGroopWebApp.Controllers
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoService _photoService;
 
-        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
+        public ClubController(IClubRepository clubRepository, IPhotoService photoService, HttpContextAccessor _httpContextAccessor)
         {
             _clubRepository = clubRepository;
             _photoService = photoService;
@@ -268,6 +268,11 @@ namespace RunGroopWebApp.Controllers
 
             _clubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
+        }
+
+        public object Detail(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
